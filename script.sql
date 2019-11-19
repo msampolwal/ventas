@@ -44,3 +44,18 @@ CREATE TABLE `ventas`.`proveedor` (
 ALTER TABLE `ventas`.`item_venta` ADD INDEX `venta_fk_idx` (`id_venta` ASC) VISIBLE;
 ;
 ALTER TABLE `ventas`.`item_venta` ADD CONSTRAINT `venta_fk` FOREIGN KEY (`id_venta`) REFERENCES `ventas`.`venta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `ventas`.`cliente` 
+CHANGE COLUMN `id` `id` BIGINT(20) NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `ventas`.`proveedor` 
+CHANGE COLUMN `id` `id` BIGINT(20) NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `ventas`.`item_venta` 
+CHANGE COLUMN `id` `id` BIGINT(20) NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `ventas`.`producto` 
+CHANGE COLUMN `id` `id` BIGINT(20) NOT NULL AUTO_INCREMENT ;
+
+ALTER TABLE `ventas`.`venta` 
+CHANGE COLUMN `id` `id` BIGINT(20) NOT NULL AUTO_INCREMENT ;
