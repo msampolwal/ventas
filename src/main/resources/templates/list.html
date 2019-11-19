@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Proveedores</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/form/null" class="btn btn-primary">Nuevo</a>
+		</div>
+		<div th:switch="${proveedores}">
+			<h2 th:case="null">No hay proveedores</h2>
+			<div th:case="*">
+				<h2>Proveedores</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>CUIT</th>
+							<th>Razon Social</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="proveedor : ${proveedores}">
+							<td th:text="${proveedor.id}">
+							<td th:text="${proveedor.cuit}">
+							<td th:text="${proveedor.razonSocial}">
+							<td><a th:href="@{/form/{id}{id=${persona.id}}}">Editar</a></td>
+							<td><a th:href="@{/delete/{id}{id=${persona.id}}}">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

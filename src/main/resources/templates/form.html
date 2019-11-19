@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Proveedores</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<form action="#" th:action="@{/save}" class="form-group" th:object="${proveedor}" method="post">
+			<h2>Nuevo proveedor</h2>
+			<div class="form-group">
+				<label for="cuit">CUIT</label>
+				<input type="text" class="form-control" id="cuit" name="cuit">
+			</div>
+			<div class="form-group">
+				<label for="razonSocial">Razon Social</label>
+				<input type="text" class="form-control" id="razonSocial" name="razonSocial">
+			</div>
+			<div class="form-group">
+				<label for="direccion">Direccion</label>
+				<input type="text" class="form-control" id="direccion" name="direccion">
+			</div>
+			<div class="form-group">
+				<label for="telefono">Telefono</label>
+				<input type="text" class="form-control" id="telefono" name="telefono">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" id="email" name="email">
+			</div>
+			<button type="submit" class="btn btn-success">Guardar</button>
+			<a href="/" class="btn btn-secondary">Volver</a>
+		</form>
+	</div>
+</body>
+</html>
