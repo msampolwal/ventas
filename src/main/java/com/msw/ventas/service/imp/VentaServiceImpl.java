@@ -1,5 +1,6 @@
 package com.msw.ventas.service.imp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import com.msw.ventas.service.api.VentaServiceApi;
 @Service
 public class VentaServiceImpl extends GenericServiceImp<Venta, Long> implements VentaServiceApi {
 
+	@Autowired
 	private VentaDaoApi ventaDao;
 	
 	@Override

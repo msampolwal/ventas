@@ -12,7 +12,7 @@ import com.msw.ventas.service.api.ClienteServiceApi;
 @Service
 public class ClienteServiceImpl extends GenericServiceImp<Cliente, Long> implements ClienteServiceApi{
 
-	@Autowired(required = true)
+	@Autowired
 	private ClienteDaoApi clienteDao;
 	
 	@Override
