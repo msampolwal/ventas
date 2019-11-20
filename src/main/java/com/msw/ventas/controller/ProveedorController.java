@@ -17,30 +17,32 @@ public class ProveedorController {
 	@Autowired
 	private ProveedorServiceApi proveedorServiceApi;
 	
-	@RequestMapping("/")
+	@RequestMapping("/proveedor/")
 	public String getIndex(Model model) {
 		model.addAttribute("proveedores", proveedorServiceApi.getAll());
-		return "list";
+		return "proveedor/list";
 	}
 	
-	@GetMapping("/form/{id}")
-	public String selectProveedor(Long id, Model model) {
-		if(id != null)
+	@GetMapping("/proveedor/form/{id}")
+	public String selectProveedor(@PathVariable Long id, Model model) {
+		if(id != null && id != 0)
 			model.addAttribute("proveedor", proveedorServiceApi.get(id));
-		return "form";
+		else
+			model.addAttribute("proveedor", new Proveedor());
+		return "proveedor/form";
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/proveedor/save")
 	public String save(Proveedor proveedor, Model model) {
 		if(proveedor != null)
 			proveedorServiceApi.save(proveedor);
-		return "redirect:/";
+		return "redirect:/proveedor/";
 	}
 	
-	@GetMapping("/delete/{id}")
+	@GetMapping("/proveedor/delete/{id}")
 	public String delete(@PathVariable Long id, Model model) {
 		if(id != null)
 			proveedorServiceApi.delete(id);
-		return "redirect:/";
+		return "redirect:/proveedor/";
 	}
 }

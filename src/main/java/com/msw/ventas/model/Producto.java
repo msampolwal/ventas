@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -20,6 +21,7 @@ public class Producto {
     private String descripcion;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="id_proveedor")
     private Proveedor proveedor;
     
     private BigDecimal precio;
