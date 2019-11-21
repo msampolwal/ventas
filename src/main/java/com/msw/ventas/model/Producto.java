@@ -26,7 +26,7 @@ public class Producto {
     
     private BigDecimal precio;
     
-    private BigDecimal stock;
+    private BigDecimal stock = new BigDecimal(0);
 
     /*Getters y Setters*/
 	public Long getId() {

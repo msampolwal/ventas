@@ -87,4 +87,9 @@ public class Proveedor {
 	public void setProductos(Set<Producto> productos) {
 		this.productos = productos;
 	}
+	
+	@Override
+	public String toString() {
+		return getCuit() + " - " + getRazonSocial();
+	}
 }

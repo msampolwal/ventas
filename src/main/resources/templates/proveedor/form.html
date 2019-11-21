@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layauts/layaut}">
 <head>
 <meta charset="ISO-8859-1">
 <title>Proveedores</title>
-
-<!-- Bootstrap CSS -->
-<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-	<div class="container">
+	<div layout:fragment="content">
 		<form action="#" th:action="@{/proveedor/save}" class="form-group" th:object="${proveedor}" method="post">
-			<h2>Nuevo proveedor</h2>
+			<h2>Alta de Proveedor</h2>
+			<input type="hidden" th:field="*{id}"/>
+			
 			<div class="form-group">
 				<label for="cuit">CUIT</label>
 				<input type="text" class="form-control" id="cuit" th:field="*{cuit}" name="cuit">

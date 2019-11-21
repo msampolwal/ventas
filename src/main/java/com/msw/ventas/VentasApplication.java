@@ -2,6 +2,9 @@ package com.msw.ventas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 @SpringBootApplication
 public class VentasApplication {
@@ -10,4 +13,8 @@ public class VentasApplication {
 		SpringApplication.run(VentasApplication.class, args);
 	}
 
+	@Bean
+	public LayoutDialect layoutDialect() {
+	    return new LayoutDialect();
+	}
 }

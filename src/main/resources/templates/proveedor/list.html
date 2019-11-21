@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layauts/layaut}">
 <head>
-<meta charset="ISO-8859-1">
-<title>Proveedores</title>
-
-<!-- Bootstrap CSS -->
-<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+	<meta charset="ISO-8859-1">
+	<title>Proveedores</title>
 </head>
 <body>
-	<div class="container">
+	<div layout:fragment="content">
 		<br>
-		<div>
-			<a href="/proveedor/form/0" class="btn btn-primary">Nuevo</a>
-		</div>
 		<h2 th:if="${proveedores.isEmpty()}">No hay proveedores</h2>
 		<div th:if="${!proveedores.isEmpty()}">
 			<h2>Proveedores</h2>
@@ -24,6 +18,7 @@
 						<th>Razon Social</th>
 						<th></th>
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,6 +26,7 @@
 						<td th:text="${proveedor.id}">
 						<td th:text="${proveedor.cuit}">
 						<td th:text="${proveedor.razonSocial}">
+						<td><a th:href="@{/producto/form/{id}/0(id=${proveedor.id})}" class="btn btn-success">Alta Producto</a></td>
 						<td><a th:href="@{/proveedor/form/{id}(id=${proveedor.id})}" class="btn btn-primary">Editar</a></td>
 						<td><a th:href="@{/proveedor/delete/{id}(id=${proveedor.id})}" class="btn btn-danger">Eliminar</a></td>
 					</tr>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layauts/layaut}">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Gestion de Stock</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<br>
+		<h2 th:if="${productos.isEmpty()}">No hay productos para mostrar</h2>
+		<div th:if="${!productos.isEmpty()}">
+			<h2>Productos</h2>
+			<a th:href="@{/stock/createExcel}" style="float: right;"><img th:src="@{/img/excel-icon.png}" style="width: 40px;margin-left: 10px;"></a>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Proveedor</th>
+						<th>Nombre</th>
+						<th>Stock</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="producto : ${productos}">
+						<td th:text="${producto.proveedor}">
+						<td th:text="${producto.nombre}">
+						<td th:text="${producto.stock}">
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
