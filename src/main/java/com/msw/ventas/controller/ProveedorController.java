@@ -12,7 +12,7 @@ import com.msw.ventas.model.Proveedor;
 import com.msw.ventas.service.api.ProveedorServiceApi;
 
 @Controller
-public class ProveedorController {
+public class ProveedorController extends AbstractController{
 	
 	@Autowired
 	private ProveedorServiceApi proveedorServiceApi;

@@ -10,7 +10,11 @@
 		<h2 th:if="${productos.isEmpty()}">No hay productos para mostrar</h2>
 		<div th:if="${!productos.isEmpty()}">
 			<h2>Productos</h2>
-			<a th:href="@{/stock/createExcel}" style="float: right;"><img th:src="@{/img/excel-icon.png}" style="width: 40px;margin-left: 10px;"></a>
+			<form th:action="@{/stock/uploadFile}" method="post" enctype="multipart/form-data">
+			    <input type="file" th:name="file">
+				<input th:type="submit" value="Actualizar" />
+			</form>
+			<a th:href="@{/stock/createExcel}"><img th:src="@{/img/excel-icon.png}" style="width: 40px;margin-left: 10px;"></a>
 			<table class="table">
 				<thead>
 					<tr>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.msw.ventas.model.Producto;
 import com.msw.ventas.model.Proveedor;
@@ -14,7 +15,7 @@ import com.msw.ventas.service.api.ProductoServiceApi;
 import com.msw.ventas.service.api.ProveedorServiceApi;
 
 @Controller
-public class ProductoController {
+public class ProductoController extends AbstractController{
 	
 	@Autowired
 	private ProductoServiceApi productoServiceApi;
@@ -37,10 +38,11 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/producto/save")
-	public String save(Producto producto, Model model) {
+	public String save(Producto producto, Model model, RedirectAttributes redirectAttributes) {
 		if(producto != null) {
 			productoServiceApi.save(producto);
 			model.addAttribute("producto", getProducto(null, null));
+			info("El producto fue dado de alta con exito", redirectAttributes);
 		}
 		return isModificacion()?"redirect:/producto/":"redirect:/producto/form/"+getProveedor().getId()+"/0";
 	}
@@ -65,8 +67,10 @@ public class ProductoController {
 	
 	@GetMapping("/producto/delete/{id}")
 	public String delete(@PathVariable Long id, Model model) {
-		if(id != null)
+		if(id != null) {
 			productoServiceApi.delete(id);
+			
+		}
 		return "redirect:/producto/";
 	}
 
